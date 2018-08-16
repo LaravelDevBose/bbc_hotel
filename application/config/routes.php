@@ -69,23 +69,13 @@ $route['service/delete/(:any)'] = 'Service/service_delete/$1';
 
 
 /*------- News and Event Route -----------*/
-$route['event_page'] = 'Event/event_page_view';
-$route['event/create'] = 'Event/event_insert_page';
-$route['event/store'] = 'Event/news_and_event_store';
-$route['event/edit_page/(:any)'] = 'Event/news_and_event_edit/$1';
-$route['event/view_page/(:any)'] = 'Event/news_and_event_view/$1';
-$route['event/update/(:any)'] = 'Event/news_and_event_update/$1';
-$route['event/delete/(:any)'] = 'Event/news_and_event_delete/$1';
-
-
-
-/*--------- Other Bussnies----------*/
-$route['business'] = 'Business/business_page';
-$route['business/store'] = 'Business/business_store_data';
-$route['business/edit_page/(:any)'] = 'Business/business_edit_page/$1';
-$route['business/view_page/(:any)'] = 'Business/business_view_page/$1';
-$route['business/update/(:any)'] = 'Business/business_update_data/$1';
-$route['business/delete/(:any)'] = 'Business/business_delete_data/$1';
+$route['package_page'] = 'Package/package_page_view';
+$route['package/create'] = 'Package/package_insert_page';
+$route['package/store'] = 'Package/package_store';
+$route['package/edit_page/(:any)'] = 'Package/package_edit/$1';
+$route['package/view_page/(:any)'] = 'Package/package_view/$1';
+$route['package/update/(:any)'] = 'Package/package_update/$1';
+$route['package/delete/(:any)'] = 'Package/package_delete/$1';
 
 
 /*------- Member List Route ---------*/

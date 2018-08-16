@@ -38,28 +38,17 @@
                     </a> 
                 </li>
                 <li>
-                    <a href="<?= base_url();?>event_page">
+                    <a href="<?= base_url();?>package_page">
                         <span class="menu-icon"><i class="fa fa-dashboard"></i></span> 
-                        <span class="menu-text">News & Event</span>  
+                        <span class="menu-text">Package List</span>  
                     </a> 
                 </li>
 
-                <li>
-                    <a href="<?= base_url();?>business">
-                        <span class="menu-icon"><i class="fa fa-dashboard"></i></span> 
-                        <span class="menu-text">Other Bussnies</span>  
-                    </a> 
-                </li>
+                
                 <li>
                     <a href="<?= base_url(); ?>member_list">
                         <span class="menu-icon"><i class="fa fa-dashboard"></i></span> 
                         <span class="menu-text">MemberShip</span>  
-                    </a> 
-                </li>
-                <li>
-                    <a href="<?= base_url();?>material_page">
-                        <span class="menu-icon"><i class="fa fa-dashboard"></i></span> 
-                        <span class="menu-text">Printing Materials</span>  
                     </a> 
                 </li>
 
@@ -74,13 +63,6 @@
                     <a href="<?= base_url();?>contact_us_page">
                         <span class="menu-icon"><i class="fa fa-dashboard"></i></span> 
                         <span class="menu-text">Contact Us</span>  
-                    </a> 
-                </li>
-
-                <li>
-                    <a href="<?= base_url();?>md_message_page">
-                        <span class="menu-icon"><i class="fa fa-dashboard"></i></span> 
-                        <span class="menu-text">Message</span>  
                     </a> 
                 </li>
 

@@ -1,10 +1,10 @@
 <?php
 
-class NewsAndEvent_model extends CI_Model
+class Package_model  extends CI_Model
 {
 	
 	/*========= get all news and event list=============*/
-	public function get_all_news_and_event()
+	public function get_all_package_list()
 	{
 		$result = $this->db->order_by('id', 'desc')->get('news_events')->result();
 
@@ -20,14 +20,14 @@ class NewsAndEvent_model extends CI_Model
 	 } 
 
 	 /*========= get event data by id ========== */
-	 public function get_news_event_by_id($id=null)
+	 public function get_package_by_id($id=null)
 	 {
 	 	$result = $this->db->where('id', $id)->get('news_events')->row();
 
 	 	if($result): return $result; else: return FALSE; endif;
 	 }
 	/* ======= Insert News and Event Info =======*/
-	public function insert_news_event_info($image_path = null)
+	public function insert_package_info($image_path = null)
 	{	
 
 		$attr = array(
@@ -51,15 +51,10 @@ class NewsAndEvent_model extends CI_Model
 	}
 
 
-	/*=========== find event by id===========*/
-	public function get_event_by_id($id=null)
-	{
-		$result= $this->db->where('id', $id)->get('news_events')->row();
-		if($result): return $result; else: return FALSE; endif;
-	}
+
 
 	/*=========== update news and event==============*/
-	public function update_news_event_info($id=null, $file_path = null)
+	public function update_package_info($id=null, $file_path = null)
 	{
 		$attr = array(
 			'title' 	=> $this->input->post('title'),
@@ -80,7 +75,7 @@ class NewsAndEvent_model extends CI_Model
 	}
 
 
-	public function new_event_delete($id=null)
+	public function package_delete($id=null)
 	{	
 		$data = $this->db->where('id', $id)->get('news_events')->row();
 		$this->db->where('id', $id);

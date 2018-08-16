@@ -1,6 +1,6 @@
 <?php
 
-class Event extends CI_Controller
+class Package extends CI_Controller
 {
 	
 	public function __construct()
@@ -24,16 +24,16 @@ class Event extends CI_Controller
 
 
 	/*======== Event Page view ==========*/
-	public function event_page_view()
+	public function package_page_view()
 	{
 		$data['title'] 		= 'News & Event';
 		$data['page_path'] 	= 'admin/event/event_page';
-		$data['events']		= $this->NewsAndEvent_model->get_all_news_and_event();
+		$data['events']		= $this->Package_model->get_all_package_list();
 		$this->load->view('admin/master', $data); 
 	}
 
 	/*======== Event Insert Page view ==========*/
-	public function event_insert_page()
+	public function package_insert_page()
 	{
 		$data['title'] 		= 'News & Event';
 		$data['page_path'] 	= 'admin/event/event_insert';
@@ -42,7 +42,7 @@ class Event extends CI_Controller
 
 	/*======= news and event store method ================*/
 
-	public function news_and_event_store()
+	public function package_store()
 	{
 		$this->form_validation->set_rules('title', 'Event Title', 'trim|required');
 		$this->form_validation->set_rules('date', 'Event Date', 'trim|required');
@@ -70,7 +70,7 @@ class Event extends CI_Controller
 				$file_path = null;
 			}
 
-			if($this->NewsAndEvent_model->insert_news_event_info($file_path)){
+			if($this->Package_model->insert_package_info($file_path)){
 				$data['success'] = 'Stored Successfully.';
 				$this->session->set_flashdata($data);
 				redirect('event/create');
@@ -85,24 +85,24 @@ class Event extends CI_Controller
 
 	/*======= news and event Edit method ================*/
 
-	public function news_and_event_edit($id=null)
+	public function package_edit($id=null)
 	{
-		$data['event'] = $this->NewsAndEvent_model->get_event_by_id($id);
+		$data['event'] = $this->Package_model->get_package_by_id($id);
 		$this->load->view('admin/event/event_edit', $data);
 	}
 
 	/*======= news and event Edit method ================*/
 
-	public function news_and_event_view($id=null)
+	public function package_view($id=null)
 	{
-		$data['event'] = $this->NewsAndEvent_model->get_event_by_id($id);
+		$data['event'] = $this->Package_model->get_package_by_id($id);
 		$this->load->view('admin/event/event_show', $data);
 	}
 
 
 	/*======= news and event Update method ================*/
 
-	public function news_and_event_update($id=null)
+	public function package_update($id=null)
 	{
 		$this->form_validation->set_rules('title', 'Event Title', 'trim|required');
 		$this->form_validation->set_rules('date', 'Event Date', 'trim|required');
@@ -112,7 +112,7 @@ class Event extends CI_Controller
 			
 			$data['title']='News and Event';
 			$data['page_path']='admin/event/news_event_edit_page';
-			$data['event'] = $this->NewsAndEvent_model->get_event_by_id($id);
+			$data['event'] = $this->Package_model->get_package_by_id($id);
 			$this->load->view('admin/master', $data);
 		}else{
 			$imageName = $_FILES['image']['name'];	
@@ -137,7 +137,7 @@ class Event extends CI_Controller
 			}
 
 
-			if($this->NewsAndEvent_model->update_news_event_info($id, $file_path)){
+			if($this->Package_model->update_package_info($id, $file_path)){
 				$data['success'] = 'Update Successfully.';
 				$this->session->set_flashdata($data);
 				redirect('event_page');
@@ -151,9 +151,9 @@ class Event extends CI_Controller
 
 	/*======= news and event delete method ================*/
 
-	public function news_and_event_delete($id=null)
+	public function package_delete($id=null)
 	{
-		if($this->NewsAndEvent_model->new_event_delete($id)){
+		if($this->Package_model->package_delete($id)){
 			$data['success'] = 'Delete Successfully.';
 			$this->session->set_flashdata($data);
 			redirect('event_page');
@@ -175,7 +175,7 @@ class Event extends CI_Controller
 		if( in_array($type, array('jpg', 'png', 'jpeg', 'gif', 'JPG', 'PNG', 'JPEG', 'GIF' )) ){
 
 				if( is_uploaded_file( $tmp_name ) ){
-					$dist_path = 'libs/upload_pic/event_image/'.$file_name ;
+					$dist_path = 'libs/upload_pic/package_image/'.$file_name ;
 				move_uploaded_file( $tmp_name, $dist_path);
 				return $dist_path;
 				
@@ -200,7 +200,7 @@ class Event extends CI_Controller
 		 $configSize1['width']           = 600;
 		 $config['quality']   			 = '100';
 		 $configSize1['height']          = 600;
-		 $configSize1['new_image'] 		 = 'libs/upload_pic/event_image/';
+		 $configSize1['new_image'] 		 = 'libs/upload_pic/package_image/';
 
 		 $this->image_lib->initialize($configSize1);
 		 $this->image_lib->resize();
