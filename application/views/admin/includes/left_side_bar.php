@@ -10,7 +10,13 @@
                         <span class="menu-text">Dashboard</span>  
                     </a> 
                 </li>
-
+                <li>
+                    <a href="<?= base_url(); ?>booking_list">
+                        <span class="menu-icon"><i class="fa fa-dashboard"></i></span> 
+                        <span class="menu-text">Booking List</span>  
+                    </a> 
+                </li>
+                
                 <li>
                     <a href="<?= base_url();?>gallery_page">
                         <span class="menu-icon"><i class="fa fa-dashboard"></i></span> 
@@ -30,6 +36,24 @@
                         <span class="menu-text">Logo</span>  
                     </a> 
                 </li>
+                <li>
+                    <a href="<?= base_url(); ?>area_page">
+                        <span class="menu-icon"><i class="fa fa-dashboard"></i></span> 
+                        <span class="menu-text">Area List</span>  
+                    </a> 
+                </li>
+                <li>
+                    <a href="<?= base_url(); ?>room_type_page">
+                        <span class="menu-icon"><i class="fa fa-dashboard"></i></span> 
+                        <span class="menu-text">Room Type List</span>  
+                    </a> 
+                </li>
+                <li>
+                    <a href="<?= base_url(); ?>area_room_type">
+                        <span class="menu-icon"><i class="fa fa-dashboard"></i></span> 
+                        <span class="menu-text">Area Wise Room List</span>  
+                    </a> 
+                </li>
 
                 <li>
                     <a href="<?= base_url(); ?>service_page">
@@ -45,12 +69,7 @@
                 </li>
 
                 
-                <li>
-                    <a href="<?= base_url(); ?>member_list">
-                        <span class="menu-icon"><i class="fa fa-dashboard"></i></span> 
-                        <span class="menu-text">MemberShip</span>  
-                    </a> 
-                </li>
+                
 
                 <li>
                     <a href="<?= base_url();?>about_insert_page">

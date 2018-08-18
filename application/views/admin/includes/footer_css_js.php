@@ -9,6 +9,7 @@
 
 
 <script type="text/javascript" src="<?= base_url();?>/libs/backEnd/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="<?= base_url();?>/libs/backEnd/js/bootstrap-select.js"></script> 
 <script type="text/javascript" src='<?= base_url();?>/libs/backEnd/plugins/jquery-ui/jquery-ui.custom.min.js'></script>
 <script type="text/javascript" src="<?= base_url();?>/libs/backEnd/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
 

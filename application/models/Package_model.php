@@ -3,42 +3,35 @@
 class Package_model  extends CI_Model
 {
 	
-	/*========= get all news and event list=============*/
+	/*========= get all package list=============*/
 	public function get_all_package_list()
 	{
-		$result = $this->db->order_by('id', 'desc')->get('news_events')->result();
+		$result = $this->db->order_by('id', 'desc')->get('packages')->result();
 
 		if($result): return $result; else: return FALSE; endif;
 	}
+ 
 
-	/*========= limit news and evnet list ==============*/
-	public function limit_news_evnet($limit=4)
-	 {
-	 	$result = $this->db->order_by('id', 'desc')->limit($limit)->get('news_events')->result();
-
-		if($result): return $result; else: return FALSE; endif;
-	 } 
-
-	 /*========= get event data by id ========== */
+	 /*========= get package data by id ========== */
 	 public function get_package_by_id($id=null)
 	 {
-	 	$result = $this->db->where('id', $id)->get('news_events')->row();
+	 	$result = $this->db->where('id', $id)->get('packages')->row();
 
 	 	if($result): return $result; else: return FALSE; endif;
 	 }
-	/* ======= Insert News and Event Info =======*/
+	/* ======= Insert package Info =======*/
 	public function insert_package_info($image_path = null)
 	{	
 
 		$attr = array(
-			'title' 	=> $this->input->post('title'),
-			'date' 	=> date("Y-m-d", strtotime($this->input->post('date'))),
-			'description' 		=> $this->input->post('description'),
-			'image' => $image_path
+			'title' 		=> $this->input->post('title'),
+			'price' 		=> $this->input->post('price'),
+			'description' 	=> $this->input->post('description'),
+			'image' 		=> $image_path
 
 		);
 
-		$insert = $this->db->insert('news_events', $attr);
+		$insert = $this->db->insert('packages', $attr);
 
 		if($insert)
 		{	
@@ -53,18 +46,18 @@ class Package_model  extends CI_Model
 
 
 
-	/*=========== update news and event==============*/
+	/*=========== update package==============*/
 	public function update_package_info($id=null, $file_path = null)
 	{
 		$attr = array(
-			'title' 	=> $this->input->post('title'),
-			'date' 	=> $this->input->post('date'),
-			'description' 		=> $this->input->post('description'),
-			'image' =>$file_path
+			'title' 		=> $this->input->post('title'),
+			'price' 		=> $this->input->post('price'),
+			'description'  	=> $this->input->post('description'),
+			'image' 		=>$file_path
 		);
 
 		$this->db->where('id', $id);
-		$this->db->update('news_events', $attr);
+		$this->db->update('packages', $attr);
 
 		if( $this->db->affected_rows()){
 			
@@ -77,9 +70,9 @@ class Package_model  extends CI_Model
 
 	public function package_delete($id=null)
 	{	
-		$data = $this->db->where('id', $id)->get('news_events')->row();
+		$data = $this->db->where('id', $id)->get('packages')->row();
 		$this->db->where('id', $id);
-		$this->db->delete('news_events');
+		$this->db->delete('packages');
 		if($this->db->affected_rows()){
 			if(file_exists($data->image)){
 				unlink($data->image);

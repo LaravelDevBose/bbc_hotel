@@ -23,35 +23,35 @@ class Package extends CI_Controller
 	}
 
 
-	/*======== Event Page view ==========*/
+	/*======== package Page view ==========*/
 	public function package_page_view()
 	{
-		$data['title'] 		= 'News & Event';
-		$data['page_path'] 	= 'admin/event/event_page';
-		$data['events']		= $this->Package_model->get_all_package_list();
+		$data['title'] 		= 'Package';
+		$data['page_path'] 	= 'admin/package/package_page';
+		$data['packages']		= $this->Package_model->get_all_package_list();
 		$this->load->view('admin/master', $data); 
 	}
 
-	/*======== Event Insert Page view ==========*/
+	/*======== package Insert Page view ==========*/
 	public function package_insert_page()
 	{
-		$data['title'] 		= 'News & Event';
-		$data['page_path'] 	= 'admin/event/event_insert';
+		$data['title'] 		= 'Package Insert';
+		$data['page_path'] 	= 'admin/package/package_insert';
 		$this->load->view('admin/master', $data); 
 	}
 
-	/*======= news and event store method ================*/
+	/*======= package store method ================*/
 
 	public function package_store()
 	{
-		$this->form_validation->set_rules('title', 'Event Title', 'trim|required');
-		$this->form_validation->set_rules('date', 'Event Date', 'trim|required');
+		$this->form_validation->set_rules('title', 'Package Title', 'trim|required');
+		$this->form_validation->set_rules('price', 'Package Price', 'trim|required');
 		$this->form_validation->set_rules('description', 'description', 'trim|required');
 			
 		if($this->form_validation->run() == FALSE){
 			
-			$data['title'] 		= 'News & Event';
-			$data['page_path'] 	= 'admin/event/event_insert';
+			$data['title'] 		= 'Package';
+			$data['page_path'] 	= 'admin/package/package_insert';
 			$this->load->view('admin/master', $data);
 		}else{
 			$imageName = $_FILES['image']['name'];	
@@ -63,7 +63,7 @@ class Package extends CI_Controller
 				}else{
 					$data['error'] = 'Image is not uploded';
 					$this->session->set_flashdata($data);
-					redirect('event/create');
+					redirect('package/create');
 				}
 				
 			}else{
@@ -73,47 +73,49 @@ class Package extends CI_Controller
 			if($this->Package_model->insert_package_info($file_path)){
 				$data['success'] = 'Stored Successfully.';
 				$this->session->set_flashdata($data);
-				redirect('event/create');
+				redirect('package/create');
 			}else{
 				$data['error'] = 'Stored Un-Successfully.';
 				$this->session->set_flashdata($data);
-				redirect('event/create');
+				redirect('package/create');
 			}
 			
 		}
 	}
 
-	/*======= news and event Edit method ================*/
+	/*======= package Edit method ================*/
 
 	public function package_edit($id=null)
-	{
-		$data['event'] = $this->Package_model->get_package_by_id($id);
-		$this->load->view('admin/event/event_edit', $data);
+	{	
+		$data['title'] 		= 'Package Insert';
+		$data['page_path'] 	= 'admin/package/package_edit';
+		$data['package'] = $this->Package_model->get_package_by_id($id);
+		$this->load->view('admin/master', $data);
 	}
 
-	/*======= news and event Edit method ================*/
+	/*======= package Edit method ================*/
 
 	public function package_view($id=null)
 	{
-		$data['event'] = $this->Package_model->get_package_by_id($id);
-		$this->load->view('admin/event/event_show', $data);
+		$data['package'] = $this->Package_model->get_package_by_id($id);
+		$this->load->view('admin/package/package_show', $data);
 	}
 
 
-	/*======= news and event Update method ================*/
+	/*=======package Update method ================*/
 
 	public function package_update($id=null)
 	{
-		$this->form_validation->set_rules('title', 'Event Title', 'trim|required');
-		$this->form_validation->set_rules('date', 'Event Date', 'trim|required');
+		$this->form_validation->set_rules('title', 'Package Title', 'trim|required');
+		$this->form_validation->set_rules('price', 'Package Price', 'trim|required');
 		$this->form_validation->set_rules('description', 'description', 'trim|required');
 			
 		if($this->form_validation->run() == FALSE){
 			
-			$data['title']='News and Event';
-			$data['page_path']='admin/event/news_event_edit_page';
-			$data['event'] = $this->Package_model->get_package_by_id($id);
-			$this->load->view('admin/master', $data);
+			$data['title'] 		= 'Package';
+			$data['page_path'] 	= 'admin/package/package_page';
+			$data['packages']		= $this->Package_model->get_all_package_list();
+			$this->load->view('admin/master', $data); 
 		}else{
 			$imageName = $_FILES['image']['name'];	
 			$tmp_name = $_FILES['image']['tmp_name'];	
@@ -129,7 +131,7 @@ class Package extends CI_Controller
 				}else{
 					$data['error'] = 'Image is not uploded';
 					$this->session->set_flashdata($data);
-					redirect('event/edit_page/'.$id);
+					redirect('package_page');
 				}
 				
 			}else{
@@ -140,7 +142,7 @@ class Package extends CI_Controller
 			if($this->Package_model->update_package_info($id, $file_path)){
 				$data['success'] = 'Update Successfully.';
 				$this->session->set_flashdata($data);
-				redirect('event_page');
+				redirect('package_page');
 			}else{
 				$data['success'] = 'Update Un-Successfully.';
 				$this->session->set_flashdata($data);
@@ -149,18 +151,18 @@ class Package extends CI_Controller
 		}
 	}
 
-	/*======= news and event delete method ================*/
+	/*======= package delete method ================*/
 
 	public function package_delete($id=null)
 	{
 		if($this->Package_model->package_delete($id)){
 			$data['success'] = 'Delete Successfully.';
 			$this->session->set_flashdata($data);
-			redirect('event_page');
+			redirect('package_page');
 		}else{
 			$data['error'] = 'Delete Un-Successfully.';
 			$this->session->set_flashdata($data);
-			redirect('event_page');
+			redirect('package_page');
 		}
 	}
 

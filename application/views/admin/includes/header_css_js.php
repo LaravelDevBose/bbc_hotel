@@ -1,7 +1,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title><?php if(isset($title)&& $title){echo $title.' | Macca Digital';}else{ echo 'Macca Digital';}?></title>
+    <title><?php if(isset($title)&& $title){echo $title.' | Hotel BBC';}else{ echo 'Hotel BBC';}?></title>
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
 
@@ -39,6 +39,7 @@
     <link href="<?= base_url();?>/libs/backEnd/css/theme-responsive.min.css" rel="stylesheet" type="text/css"> 
     <!-- Custom CSS -->
     <link href="<?= base_url();?>/libs/backEnd/custom/custom.css" rel="stylesheet" type="text/css">
+    <link href="<?= base_url();?>/libs/backEnd/css/bootstrap-select.css" rel="stylesheet" type="text/css">
 
 
 

@@ -27,7 +27,12 @@ $route['singel_service/(:any)']		= 'FrontEnd/singel_service_page/$1';
 $route['membership/registaion']		= 'FrontEnd/home_page_register_member';
 $route['membership/registaion2']	= 'FrontEnd/contact_us_register_member';
 
-
+$route['message'] 		= 'FrontEnd/message';
+$route['booking']		= 'FrontEnd/booking';
+$route['search/room_type'] = 'FrontEnd/serach_room_type';
+$route['person_info']	= 'FrontEnd/person_info_page';
+$route['booking/store']	= 'FrontEnd/booking_store_data';
+$route['bookig/complete'] = 'FrontEnd/booking_complete_message';
 
 /*========== Admin Route List =============*/
 /*========== Admin Route List =============*/
@@ -79,7 +84,7 @@ $route['package/delete/(:any)'] = 'Package/package_delete/$1';
 
 
 /*------- Member List Route ---------*/
-$route['member_list'] = 'Page/member_list_page';
+$route['booking_list'] = 'Page/Booking_list_page';
 
 
 
@@ -114,4 +119,20 @@ $route['password/check'] = 'Sub_admin/old_password_check';
 
 
 /*---------- News Event ------------------*/
+/*----------- Service and Price route----------*/
+$route['area_page'] = 'Area/area_price_page';
+$route['area/store'] = 'Area/area_store';
+$route['area/edit/(:any)'] = 'Area/area_edit/$1';
+$route['area/update/(:any)'] = 'Area/area_update/$1';
+$route['area/delete/(:any)'] = 'Area/area_delete/$1';
 
+
+$route['room_type_page'] = 'RoomType/room_type_page';
+$route['room_type/store'] = 'RoomType/room_type_store';
+$route['room_type/edit/(:any)'] = 'RoomType/room_type_edit/$1';
+$route['room_type/update/(:any)'] = 'RoomType/room_type_update/$1';
+$route['room_type/delete/(:any)'] = 'RoomType/room_type_delete/$1';
+
+$route['area_room_type'] = 'Area/area_wish_room_type';
+$route['area_room_type/store'] = 'Area/area_wish_room_type_store';
+$route['area_room_type/delete/(:any)'] = 'Area/area_wish_room_type_store/$1';

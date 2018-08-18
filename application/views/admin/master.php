@@ -36,10 +36,13 @@
             <div class="vd_bottom ">
                 <div class="container">
                     <div class="row">
-                        <div class=" col-xs-12">
+                        <div class=" col-xs-6">
                             <div class="copyright">
-                                Copyright &copy;2014 Venmond Inc. All Rights Reserved 
+                                Copyright &copy;2018 <a href="<?= base_url(); ?>">Hotel BBC.</a> All Rights Reserved 
                             </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <p style="text-align: right;">Design & Developed By:- <a rel="nofollow" href="http://linktechbd.com/">Link Up Technology Ltd.</a> </p>
                         </div>
                     </div>
                 </div>

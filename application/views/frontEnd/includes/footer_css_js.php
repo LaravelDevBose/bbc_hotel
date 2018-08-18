@@ -1,211 +1,104 @@
 
-	<!-- js -->
-	<script type="text/javascript" src="<?= base_url();?>libs/frontEnd/js/jquery-2.1.4.min.js"></script>
+		<script>
+			var revapi1,
+				tpj=jQuery;
 
-	<script type="text/javascript" src="<?= base_url();?>libs/frontEnd/js/bootstrap-3.1.1.min.js"></script>
-		<!-- stats -->
-	<script src="<?= base_url();?>libs/frontEnd/js/jquery.waypoints.min.js"></script>
-	<script src="<?= base_url();?>libs/frontEnd/js/jquery.countup.js"></script>
-	<script>
-		$('.counter').countUp();
-	</script>
-	<!-- //stats -->
- 
-	<!-- owl carousel -->
-	<script src="<?= base_url();?>libs/frontEnd/js/owl.carousel.js"></script>
-	<script>
-		$(document).ready(function () {
-			$("#owl-demo").owlCarousel({
-
-				autoPlay: 3000, //Set AutoPlay to 3 seconds
-				autoPlay: true,
-				items: 3,
-				itemsDesktop: [991, 2],
-				itemsDesktopSmall: [414, 4]
-
-			});
-		}); 
-	</script>
-	<!-- //owl carousel -->
-	
-	<!-- Responsive slider  -->
-	<script src="<?= base_url();?>libs/frontEnd/js/responsiveslides.min.js"></script>
-	<script>
-		$(function () {
-			$("#slider4").responsiveSlides({
-				auto: true,
-				pager: true,
-				nav: true,
-				speed: 1000,
-				namespace: "callbacks",
-				before: function () {
-					$('.events').append("<li>before event fired.</li>");
-				},
-				after: function () {
-					$('.events').append("<li>after event fired.</li>");
+			tpj(document).ready(function() {
+				if(tpj("#rev_slider_1_1").revolution == undefined){
+					revslider_showDoubleJqueryError("#rev_slider_1_1");
+				}else{
+					revapi1 = tpj("#rev_slider_1_1").show().revolution({
+						sliderType:"standard",
+						//jsFileLocation:"//localhost/wpmu/greek/wp-content/plugins/revslider/public/assets/js/",
+						sliderLayout:"fullscreen",
+						dottedOverlay:"none",
+						delay:9000,
+						navigation: {
+							keyboardNavigation:"off",
+							keyboard_direction: "horizontal",
+							mouseScrollNavigation:"off",
+			 							mouseScrollReverse:"default",
+							onHoverStop:"off",
+							arrows: {
+								style:"zeus",
+								enable:true,
+								hide_onmobile:false,
+								hide_onleave:false,
+								tmp:'<div class="tp-title-wrap">  	<div class="tp-arr-imgholder"></div> </div>',
+								left: {
+									h_align:"left",
+									v_align:"center",
+									h_offset:20,
+									v_offset:0
+								},
+								right: {
+									h_align:"right",
+									v_align:"center",
+									h_offset:20,
+									v_offset:0
+								}
+							}
+						},
+						visibilityLevels:[1240,1024,778,480],
+						gridwidth:1240,
+						gridheight:890,
+						lazyType:"none",
+						scrolleffect: {
+							fade:"on",
+							blur:"on",
+							maxblur:"100",
+							on_slidebg:"on",
+							on_parallax_layers:"on",
+							direction:"top",
+						},
+						parallax: {
+							type:"scroll",
+							origo:"enterpoint",
+							speed:400,
+							speedbg:0,
+							speedls:0,
+							levels:[5,10,15,20,25,30,35,40,45,46,47,48,49,50,51,55],
+						},
+						shadow:0,
+						spinner:"spinner0",
+						stopLoop:"on",
+						stopAfterLoops:0,
+						stopAtSlide:1,
+						shuffle:"off",
+						autoHeight:"off",
+						fullScreenAutoWidth:"off",
+						fullScreenAlignForce:"off",
+						fullScreenOffsetContainer: "",
+						fullScreenOffset: "",
+						disableProgressBar:"on",
+						hideThumbsOnMobile:"off",
+						hideSliderAtLimit:0,
+						hideCaptionAtLimit:0,
+						hideAllCaptionAtLilmit:0,
+						debugMode:false,
+						fallbacks: {
+							simplifyAll:"off",
+							nextSlideOnWindowFocus:"off",
+							disableFocusListener:false,
+						}
+					});
 				}
-			});
-		});
-	</script>
-	<!-- //Responsive slider  -->
 
-	<!-- Flex slider-script -->
-	<script defer src="<?= base_url();?>libs/frontEnd/js/jquery.flexslider.js"></script>
-		<script type="text/javascript">
+			});	/*ready*/
+
+		</script>
+
+
+
+		<script src="<?= base_url();?>libs/frontEnd/js/src/plugins/bootstrap.min.js"></script>
+		<script type="text/javascript" src="<?= base_url();?>/libs/backEnd/js/bootstrap-select.js"></script>
+		<script src="<?= base_url();?>libs/frontEnd/modules/slick/slick.min.js"></script>
+		<script src="<?= base_url();?>libs/frontEnd/js/src/plugins/jquery-migrate-1.4.1.min.js"></script>
+		<script src="<?= base_url();?>libs/frontEnd/modules/rellax-master/rellax.min.js"></script>
+		<script src="<?= base_url();?>libs/frontEnd/modules/Magnific-Popup/jquery.magnific-popup.js"></script>
 		
-		$(window).load(function(){
-		  $('.flexslider').flexslider({
-			animation: "slide",
-			start: function(slider){
-			  $('body').removeClass('loading');
-			}
-		  });
-		});
-	  </script>
-	<!-- //Flex slider-script -->
-	
-	<!-- start-smooth-scrolling -->
-	<script src="<?= base_url();?>libs/frontEnd/js/move-top.js"></script>
-	<script src="<?= base_url();?>libs/frontEnd/js/easing.js"></script>
-	<script>
-		jQuery(document).ready(function ($) {
-			$(".scroll").click(function (event) {
-				event.preventDefault();
-
-				$('html,body').animate({
-					scrollTop: $(this.hash).offset().top
-				}, 1000);
-			});
-		});
-	</script>
-	<!-- //end-smooth-scrolling -->
-	
-	<!-- smooth-scrolling-of-move-up -->
-	<script>
-		$(document).ready(function () {
-			/*
-			var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-			};
-			*/
-
-			$().UItoTop({
-				easingType: 'easeOutQuart'
-			});
-
-		});
-	</script>
-	<!-- //smooth-scrolling-of-move-up -->
-	
-	<!-- smooth scrolling js -->
-	<script src="<?= base_url();?>libs/frontEnd/js/SmoothScroll.min.js"></script>
-	
-<!-- For Fancy Box -->
-<script type="text/javascript" src="<?php echo base_url()?>libs/backEnd/fancyBox/js/jquery.fancybox.js?v=2.1.5"></script>
-
-<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>libs/backEnd/fancyBox/css/jquery.fancybox.css?v=2.1.5" media="screen" />
-
-<script type="text/javascript">
-
-    $(document).ready(function() {
-
-        $('.fancybox').fancybox({
-
-        padding: 0,
-
-            openEffect : 'elastic',
-
-            openSpeed  : 150,
-
-            closeEffect : 'elastic',
-
-            closeSpeed  : 150,
-
-            maxWidth    : "90%",
-
-            autoSize    : true,
-
-            autoScale   : true,
-
-            fitToView   : true,
-
-            helpers : {
-
-                title : {
-
-                    type : 'inside'
-
-                },
-
-                overlay : {
-
-                    css : {
-
-                        'background' : 'rgba(0,0,0,0.3)'
-
-                    }
-
-                }
-
-            }       
-
-        });
-
-        $('.fancyboxview').fancybox({
-
-        padding: 0,
-
-            openEffect : 'elastic',
-
-            openSpeed  : 150,
-
-
-
-            closeEffect : 'elastic',
-
-            closeSpeed  : 150,
-
-            maxWidth    : "95%",
-
-            autoSize    : true,
-
-            autoScale   : true,
-
-            fitToView   : true,
-
-
-
-            helpers : {
-
-                title : {
-
-                    type : 'inside'
-
-                },
-
-                overlay : {
-
-                    css : {
-
-                        'background' : 'rgba(0,0,0,0.3)'
-
-                    }
-
-                }
-
-            }       
-
-        });
-
-    });    
-
-</script>
-
-
-
-
-
-
+		<script src="<?= base_url();?>libs/frontEnd/modules/jquery-datepicker/jquery-ui.min.js"></script>
+		<!--Easy paginate script -->
+	  <script src="<?= base_url();?>libs/frontEnd/modules/easyPaginate/jquery.easyPaginate.js"></script>
+		<!-- Main template script -->
+		<script src="<?= base_url();?>libs/frontEnd/js/src/script.js"></script>

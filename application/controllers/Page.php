@@ -13,11 +13,11 @@ Class Page extends CI_Controller{
 	}
 
 	/*========== member List page ===========*/
-	public function member_list_page()
+	public function Booking_list_page()
 	{
-		$data['title'] 		= 'Member List';
-		$data['page_path'] 	= 'admin/member/member_list';
-		$data['members']	= $this->User_model->get_all_user();
+		$data['title'] 		= 'Booking List';
+		$data['page_path'] 	= 'admin/booking/booking_list';
+		$data['booking_list']	= $this->Booking_model->get_all_booking_data();
 		$this->load->view('admin/master', $data); 
 	}
 	
