@@ -49,6 +49,7 @@
 		</script>
 
 		<!-- Main theme stylesheet -->
+		<link href="<?= base_url();?>libs/frontEnd/style/main-style.css" rel="stylesheet" type="text/css">
 		<link href="<?= base_url();?>libs/frontEnd/style/css/template.css" rel="stylesheet" type="text/css">
  		<script src="<?php echo base_url();?>libs/backEnd/sweetAlert_script/sweetalert.min.js"></script>
    		<link href="<?= base_url();?>/libs/backEnd/css/bootstrap-select.css" rel="stylesheet" type="text/css">

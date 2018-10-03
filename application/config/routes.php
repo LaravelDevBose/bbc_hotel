@@ -15,17 +15,8 @@ $route['index'] 		= 'FrontEnd/index';
 $route['about_us'] 		= 'FrontEnd/about_us_page';
 $route['services']		= 'FrontEnd/our_service_page';
 $route['gallary']		= 'FrontEnd/phote_gallary_page';
-$route['other_business']= 'FrontEnd/other_business_page';
-$route['singel_busines/(:any)']= 'FrontEnd/singel_busines_page/$1';
-$route['materials']		= 'FrontEnd/materials_page';
+
 $route['contact_us'] 	= 'FrontEnd/contacts_us_page';
-
-
-$route['message-of-md'] = 'FrontEnd/md_message_show';
-$route['details_NewsEvent/(:any)'] 	= 'FrontEnd/read_news_event/$1'; 
-$route['singel_service/(:any)']		= 'FrontEnd/singel_service_page/$1';
-$route['membership/registaion']		= 'FrontEnd/home_page_register_member';
-$route['membership/registaion2']	= 'FrontEnd/contact_us_register_member';
 
 $route['message'] 		= 'FrontEnd/message';
 $route['booking']		= 'FrontEnd/booking';
@@ -85,7 +76,7 @@ $route['package/delete/(:any)'] = 'Package/package_delete/$1';
 
 /*------- Member List Route ---------*/
 $route['booking_list'] = 'Page/Booking_list_page';
-
+$route['booking_view/(:any)'] = 'Page/Booking_data_view/$1';
 
 
 /*--------- printing Materials----------*/

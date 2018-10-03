@@ -20,14 +20,9 @@
                         <th>Company Name</th>
                         <th>Email</th>
                         <th>Phone</th>
-                        <th>Reference</th>
                         <th>Area</th>
                         <th>Room Type</th>
-                        <th>Room Qty</th>
-                        <th>Check In</th>
-                        <th>Check Out</th>
-                        <th>Adults</th>
-                        <th>Childen</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,14 +33,13 @@
                         <td><?= ucfirst($data->cmpy_name); ?></td>
                         <td><?= $data->email; ?></td>
                         <td><?= $data->phone_num; ?></td>
-                        <td><?= $data->reference; ?></td>
                         <td><?= $data->name; ?></td>
                         <td><?= $data->title; ?></td>
-                        <td><?= $data->room_qty; ?></td>
-                        <td><?= date('d M y', strtotime($data->start_date)); ?></td>
-                        <td><?= date('d M y', strtotime($data->end_date)); ?></td>
-                        <td><?= $data->adults; ?></td>
-                        <td><?= $data->children; ?></td>
+                        
+                        <td class="menu-action">
+                            <a href="<?= base_url();?>booking_view/<?= $data->id; ?>" data-original-title="view" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-green linka fancybox fancybox.ajax"> <i class="fa fa-eye"></i> </a> 
+                            
+                        </td>
                     </tr>
                     <?php endforeach; endif;  ?>
                 </tbody>

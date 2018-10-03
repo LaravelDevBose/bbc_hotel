@@ -18,11 +18,11 @@
 		    color: #fff;
 		}
 	</style>
-	<body>
+	<body >
 
 	
 
-	<div id="page_wrapper">
+	<div id="page_wrapper" <?php echo ($this->uri->uri_string()!= '')? 'style="background-color: #ecf5f9"': ' '; ?> >
 		<header id="header" class="site-header header--sticky header--not-sticked site-header--absolute">
 				<div class="site-header-main-wrapper clearfix">
 					<div class="container siteheader-container">
@@ -68,55 +68,58 @@
 					</div>
 				</div>
 		</header>
+
+
+
+		<?php if($this->uri->uri_string()!= 'bookig/complete'): if($this->uri->uri_string()== ''):?>
 		<!--slider starts -->
 		<div class="clearfix">
 			<div class="hg-slideshow">
-			<div id="rev_slider_1_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="greekhotel-slider" data-source="gallery" style="background:rgba(102,102,102,0);padding:0px;">
+				<div id="rev_slider_1_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="greekhotel-slider" data-source="gallery" style="background:rgba(102,102,102,0);padding:0px;">
 					<!-- START REVOLUTION SLIDER 5.4.5.1 fullscreen mode -->
-						<div id="rev_slider_1_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.5.1">
-					<ul>	<!-- SLIDE  -->
+					<div id="rev_slider_1_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.5.1">
+						<ul>
+							<?php $i = 1;  if($sliders && isset($sliders)): foreach($sliders as $slider): ?>
 
+							<li data-index="rs-<?= $i++; ?>" data-transition="slotzoom-horizontal" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="<?= base_url(). $slider->image; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+								<!-- MAIN IMAGE -->
+								<img src="<?= base_url(). $slider->image; ?>"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="8" class="rev-slidebg" data-no-retina>
+								<!-- LAYER NR. 3 -->
+								<div class="tp-caption   tp-resizeme rs-parallaxlevel-14"
+									 id="slide-1-layer-2"
+									 data-x="center" data-hoffset=""
+									 data-y="center" data-voffset="-3"
+												data-width="['auto']"
+									data-height="['auto']"
 
-						<?php $i = 1;  if($sliders && isset($sliders)): foreach($sliders as $slider): ?>
+									data-type="text"
+									data-responsive_offset="on"
 
-						<li data-index="rs-<?= $i++; ?>" data-transition="slotzoom-horizontal" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="<?= base_url(). $slider->image; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-							<!-- MAIN IMAGE -->
-							<img src="<?= base_url(). $slider->image; ?>"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="8" class="rev-slidebg" data-no-retina>
-							<!-- LAYER NR. 3 -->
-							<div class="tp-caption   tp-resizeme rs-parallaxlevel-14"
-								 id="slide-1-layer-2"
-								 data-x="center" data-hoffset=""
-								 data-y="center" data-voffset="-3"
-											data-width="['auto']"
-								data-height="['auto']"
+									data-frames='[{"delay":10,"split":"chars","splitdelay":0.05,"speed":2000,"split_direction":"forward","frame":"0","from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+									data-textAlign="['center','center','center','center']"
+									data-paddingtop="[0,0,0,0]"
+									data-paddingright="[0,0,0,0]"
+									data-paddingbottom="[0,0,0,0]"
+									data-paddingleft="[0,0,0,0]"
 
-								data-type="text"
-								data-responsive_offset="on"
-
-								data-frames='[{"delay":10,"split":"chars","splitdelay":0.05,"speed":2000,"split_direction":"forward","frame":"0","from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-								data-textAlign="['center','center','center','center']"
-								data-paddingtop="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]"
-								data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]"
-
-								style="z-index: 7; white-space: nowrap; font-size: 72px; line-height: 90px; font-weight: 500; color: #ffffff; letter-spacing: 0px;font-family:Poppins;text-transform:uppercase;letter-spacing:20px;"><?= ucfirst($slider->s_title)?> </div>
-						</li>
-			
-						<?php endforeach; endif;?>
-
-					</ul>
-					<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>	</div>
-					</div><!-- END REVOLUTION SLIDER -->
-		</div>
+									style="z-index: 7; white-space: nowrap; font-size: 72px; line-height: 90px; font-weight: 500; color: #ffffff; letter-spacing: 0px;font-family:Poppins;text-transform:uppercase;letter-spacing:20px;"><?= ucfirst($slider->s_title)?> </div>
+							</li>
+				
+							<?php endforeach; endif;?>
+						</ul>
+						<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>	
+					</div>
+				</div><!-- END REVOLUTION SLIDER -->
+			</div>
 		</div>
 		<!-- end clearfix -->
+		<?php endif; ?>
 
 		<!--Search section  -->
 		<div class="container search-container">
 			<div class="row">
 				<div class="col-md-12 col-sm-12 ">
-					<div class="home-container">
+					<div class="home-container" <?php echo ($this->uri->uri_string()!= '')? 'style="margin-top: 50px;"': ' '; ?>>
 						<!--floating icon-->
 						<div class="hg-iconbox--center-icon txt-center hg-iconbox--floating">
 							<div class="hg-iconbox__icon-wrapper">
@@ -125,26 +128,23 @@
 						</div>
 						<!--search form-->
 						<div class="form-container">
-							<h2>BOOKING YOUR ROOM</h2>
+							<h2 style="text-align: center; padding: 15px; font-weight: bold;">BOOKING YOUR ROOM</h2>
 							<form action="<?= base_url();?>booking" method="POST" style="z-index:9998;">
 								<div class="flex-row form-row">
 									<div class="col-md-12">
 										<div class="col-md-6">
 										<!--date picker arrival-->
 											<div class="hg-form-component-input form-group">
-												<label for="reservation-area">Area</label>
+												<label for="reservation-area">Location</label>
 												
 
 												<select id="reservation-area" class="selectpicker" name="area_id" required  data-live-search="true">
-						                            <option value="0">Select Your Area</option>
+						                            <option value="0">Select Your Location</option>
 							                            <?php if($areas && isset($areas)): foreach($areas as $area):?>
 							                            <option value="<?= $area->id; ?>"><?= $area->name; ?></option>
 							                            <?php endforeach; endif; ?>
 						                        	
 						                        </select>
-							                  	<!-- <input  required="" name="area" type='text' class="" value placeholder="Area Name"/> -->
-
-								              
 								          	</div>
 										</div>
 						
@@ -274,37 +274,72 @@
 				<p style="color: #7f82f0 ; text-align: justify;"> <?php if($note && isset($note)){ echo ucfirst($note->value); }?></p>
 			</div>
 		</div>
-		<?php endif;?>
+		<?php endif; endif;?>
+
+
+
+
+
 
 		<?php $this->load->view('admin/includes/message'); ?>
 		<?php if($page_path && isset($page_path)){ $this->load->view($page_path);}?>
-		<footer>
-			<div class="hg-footer container">
-				<div class="hg-footer--row row">
-					<div class=" col-md-12 col-sm-12">
-						
-						<div class="clearfix hg-title-block">
-							<h3 class="hg-title-block__title">Follow us:</h3>
-						</div>
-						<ul class="footer-social">
-							<li class="footer-social__item "><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-							<li class="footer-social__item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							<li class="footer-social__item"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-							<li class="footer-social__item"><a href="#"><i class="fa fa-tripadvisor" aria-hidden="true"></i>
-								</a></li>
-							<li class="footer-social__item"><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+		<footer id="footer" class="footer-area" >
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-5">
+						<div class="footer-left">
+							<div id="text-2" class="widget_text">
+								<p class="widget-title">About Us</p>
+								<div class="textwidget">
+									<p><?php if($about_us && isset($about_us)){ echo substr($about_us->value, 5, 300) ; }?></p>
+								</div>
+								<a href="<?= base_url('about_us');?>">Read More..</a>
+							</div>
 
-						</ul>
-						<div class="hg-textbox">
-							<p class="copyright">
-								Copyright &copy; 2018 <a href="<?= base_url(); ?>">Hotel BBC.com</a>
-								<br>
-								<p >Design & Developed By:- <a rel="nofollow" href="http://linktechbd.com/">Link Up Technology Ltd.</a> </p>
-							</p>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="footer-center">
+							<div id="" class="widget_nav_menu reveal-widget clearfix"><p class="widget-title">Helpful Links</p>
+								<div class="menu-main-menu-container">
+									<ul id="menu-main-menu" class="menu">
+										<li class=""><a href="<?= base_url();?>" itemprop="url">Home</a></li>
+										<li class=""><a href="<?= base_url('about_us');?>" itemprop="url">About Us</a></li>
+										<li class=""><a href="<?= base_url('contact_us');?>" itemprop="url">Contact Us</a></li><!-- 
+										<li class=""><a href="" itemprop="url">Work Process</a></li>
+										<li class=""><a href="#" itemprop="url">Blog</a></li> -->
+									</ul>
+								</div>
+							</div>						
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="footer-right">
+							<div id="text-3" class="widget_text reveal-widget clearfix">
+								<p class="widget-title">Follow Us</p>			
+								<div class="textwidget">
+									<div class="footer-left">
+										<a href="#" target="_blank"><i class="fa fa-facebook"></i></a>								
+										<a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+									</div>
+								</div>
+							</div>						
 						</div>
 					</div>
 				</div>
+			</div><!-- /.container -->
+
+
+			<div id="copyright">
+				<div class="container">
+
+					<p class="text-center copyright">
+					Copyright 2018 - Website Designed and Developed by <a href="#" rel="nofollow">Link Up Technology</a>. All Rights Reserved by SUN ENTERPRISE.</p>	
+
+				</div>    
+
 			</div>
+
 		</footer>	<!-- end footer section -->
 		<a href="#" class="totop">TOP</a> <!--/.totop -->
 		<?php $this->load->view('frontEnd/includes/footer_css_js');?>

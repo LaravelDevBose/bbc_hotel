@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" style="margin-top: 85px;">
 	<div class="row">
 		
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-success">
 			  	<div class="panel-heading">
-			    	<h3 class="panel-title">Booking Succes Message</h3>
+			    	<h3 class="panel-title">Booking Success Message</h3>
 			  	</div>
 			  	<div class="panel-body">
 			  		<div class="alert">

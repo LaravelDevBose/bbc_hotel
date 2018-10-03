@@ -4,12 +4,24 @@ class Booking_model extends CI_Model
 {
 	
 	public function get_all_booking_data()
-	{	$this->db->select('booking.*, areas.name, room_types.title');
+	{	
+		$this->db->select('booking.*, areas.name, room_types.title');
 		$this->db->from('booking');
 		$this->db->join('areas','areas.id = booking.area_id');
 		$this->db->join('room_types', 'room_types.id = booking.room_type');
 		$result = $this->db->order_by('id', 'desc')->get()->result();
-		if($result): return $result; else: return FALSE; endif;	}
+		if($result): return $result; else: return FALSE; endif;	
+	}
+
+	public function get_booking_data_by_id($id=null)
+	{
+		$this->db->select('booking.*, areas.name, room_types.title');
+		$this->db->from('booking');
+		$this->db->join('areas','areas.id = booking.area_id');
+		$this->db->join('room_types', 'room_types.id = booking.room_type');
+		$result = $this->db->where('booking.id', $id)->get()->row();
+		if($result): return $result; else: return FALSE; endif;
+	}
 
 
 	/* ======= Insert Booking Info =======*/

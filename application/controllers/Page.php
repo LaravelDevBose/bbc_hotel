@@ -21,6 +21,16 @@ Class Page extends CI_Controller{
 		$this->load->view('admin/master', $data); 
 	}
 	
+	/*========= Booking Data View=========*/
+	public function Booking_data_view($id= null)
+	{
+		$data['data'] = $this->Booking_model->get_booking_data_by_id($id);
+		$data['phone'] 		= $this->Page_model->get_phone_info();
+		$data['email'] 		= $this->Page_model->get_email_info();
+		$data['logo'] 		= $this->Template_model->get_logo();
+		$data['address'] 	= $this->Page_model->get_address_info();
+		$this->load->view('admin/booking/booking_view', $data);
+	}
 
 
 	/*============== About Us Pages==============*/

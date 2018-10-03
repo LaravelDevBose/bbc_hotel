@@ -11,9 +11,9 @@ $db['default'] = array(
 	'password' => '',
 	'database' => 'hotel_bbc',
 
- //    'username' => 'maccadigitala_web',
-	// 'password' => 'EIbPNfDu&mXZ',
-	// 'database' => 'maccadigitala_web',
+//     'username' => 'hotel6bc_linkUp',
+	// 'password' => '*PMwQ)6vd2{L',
+	// 'database' => 'hotel6bc_web',
 	
 	
 	'dbdriver' => 'mysqli',
